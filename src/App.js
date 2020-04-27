@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Window } from './components'
+import { Window, Desktop } from './components'
 import '98.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
+    <Desktop>
       <Window title="Hey, you!">
         <p style={{ textAlign: 'center' }}>Current count: {count}</p>
         <div className="field-row" style={{ justifyContent: 'center' }}>
@@ -15,7 +15,7 @@ function App() {
           <button onClick={() => setCount(0)}>0</button>
         </div>
       </Window>
-    </div>
+    </Desktop>
   )
 }
 
