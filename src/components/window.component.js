@@ -14,6 +14,7 @@ export const Window = ({
   onMax,
   onClose,
   resizable = true,
+  bodyMargin = true,
 }) => {
   const windowStyle = {
     ...style,
@@ -32,16 +33,18 @@ export const Window = ({
       enableResizing={resizable}
     >
       <div style={windowStyle} className="window">
-        <div className="title-bar">
-          <div className="title-bar-text">{title}</div>
-          <div className="title-bar-controls">
-            {onMin && <button aria-label="Minimize" onPress={onMin} />}
-            {onMax && <button aria-label="Maximize" onPress={onMax} />}
-            {onClose && <button aria-label="Close" onPress={onClose} />}
+        {title && (
+          <div className="title-bar">
+            <div className="title-bar-text">{title}</div>
+            <div className="title-bar-controls">
+              {onMin && <button aria-label="Minimize" onPress={onMin} />}
+              {onMax && <button aria-label="Maximize" onPress={onMax} />}
+              {onClose && <button aria-label="Close" onPress={onClose} />}
+            </div>
           </div>
-        </div>
+        )}
 
-        <div className="window-body">{children}</div>
+        {bodyMargin ? <div className="window-body">{children}</div> : children}
       </div>
     </Rnd>
   )

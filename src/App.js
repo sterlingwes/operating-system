@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Window, Desktop } from './components'
 import '98.css'
+import { DOSPrompt } from './core-apps'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
           <button onClick={() => setCount(0)}>0</button>
         </div>
       </Window>
+      <DOSPrompt></DOSPrompt>
     </Desktop>
   )
 }
