@@ -14,6 +14,7 @@ export const Window = ({
   onMax,
   onClose,
   resizable = true,
+  initialPosition,
   bodyMargin = true,
 }) => {
   const windowStyle = {
@@ -28,6 +29,7 @@ export const Window = ({
         x: 0,
         y: 0,
         ...dims(style),
+        ...initialPosition,
       }}
       dragHandleClassName="title-bar"
       enableResizing={resizable}

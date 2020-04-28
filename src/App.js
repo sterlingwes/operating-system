@@ -1,22 +1,24 @@
 import React, { useState } from 'react'
-import { Window, Desktop } from './components'
+import { Desktop } from './components'
 import '98.css'
 import { DOSPrompt } from './core-apps'
 
+// const supportedApps = [DOSPrompt]
+// const WindowManager = createContext({ activeWindows: [] })
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeWindows] = useState([
+    {
+      Component: DOSPrompt,
+      initialProps: { initialPosition: { x: 200, y: 100 } },
+    },
+  ])
 
   return (
     <Desktop>
-      <Window title="Hey, you!">
-        <p style={{ textAlign: 'center' }}>Current count: {count}</p>
-        <div className="field-row" style={{ justifyContent: 'center' }}>
-          <button onClick={() => setCount(count + 1)}>+</button>
-          <button onClick={() => setCount(count - 1)}>-</button>
-          <button onClick={() => setCount(0)}>0</button>
-        </div>
-      </Window>
-      <DOSPrompt></DOSPrompt>
+      {activeWindows.map(({ Component, initialProps }) => (
+        <Component {...initialProps} />
+      ))}
     </Desktop>
   )
 }
