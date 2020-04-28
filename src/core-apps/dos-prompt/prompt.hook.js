@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { runCommand } from './commands'
 
 const commandSent = (text) => {
   return text.substr(-1) === '\n'
@@ -10,14 +11,6 @@ const prefixPrompt = (text = '') => {
   return `${promptPrefix}${text}`
 }
 
-const supportedBins = ['echo']
-
-const binUnsupported = (txt) => {
-  const space = txt.indexOf(' ')
-  const cmd = space > 0 ? txt.substr(0, space) : txt
-  return supportedBins.includes(cmd) === false
-}
-
 export const usePrompt = () => {
   const [commandHistory, setCommandHistory] = useState([])
   const [currentCommand, setCurrentCommand] = useState('')
@@ -26,10 +19,16 @@ export const usePrompt = () => {
     (currentText) => {
       if (commandSent(currentText)) {
         const txt = currentText.substr(0, currentText.length - 1)
-        let newHistory = commandHistory.concat(prefixPrompt(txt))
-        if (binUnsupported(txt)) {
-          newHistory = newHistory.concat('Unrecognized command')
+
+        if (txt.trim() === 'cls') {
+          setCommandHistory([])
+          setCurrentCommand('')
+          return
         }
+
+        const newHistory = commandHistory
+          .concat(prefixPrompt(txt))
+          .concat(runCommand(txt))
         setCommandHistory(newHistory)
         setCurrentCommand('')
       } else {
