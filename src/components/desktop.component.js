@@ -38,6 +38,7 @@ const IconLabel = styled('div')`
 
 const IconImage = styled('img')`
   margin: 0 auto;
+  user-select: none;
 `
 
 const icons = [

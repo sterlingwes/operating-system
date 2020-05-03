@@ -2,11 +2,12 @@ import React from 'react'
 import { Window } from '../../components'
 import { Prompt } from './prompt.component'
 import { width, height } from './constants'
+import { propagatableWindowProps } from '../../utils'
 
-export const DOSPrompt = ({ initialPosition, onClose, onFocusWindow }) => {
+export const DOSPrompt = (props) => {
   return (
     <Window
-      {...{ initialPosition, onClose, onFocusWindow }}
+      {...propagatableWindowProps(props)}
       title="MS-DOS Prompt"
       style={{ width, height }}
       bodyMargin={false}
