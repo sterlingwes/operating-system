@@ -111,6 +111,7 @@ dist
 
 # testing
 /coverage
+/cypress/videos/
 
 # production
 /build
