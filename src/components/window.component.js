@@ -13,6 +13,7 @@ export const Window = ({
   onMin,
   onMax,
   onClose,
+  onFocusWindow,
   resizable = true,
   initialPosition,
   bodyMargin = true,
@@ -34,7 +35,7 @@ export const Window = ({
       dragHandleClassName="title-bar"
       enableResizing={resizable}
     >
-      <div style={windowStyle} className="window">
+      <div style={windowStyle} className="window" onClick={onFocusWindow}>
         {title && (
           <div className="title-bar">
             <div className="title-bar-text">{title}</div>

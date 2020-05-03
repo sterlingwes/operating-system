@@ -35,6 +35,24 @@ const createApp = (id, createWindowProps) => {
 const filterWindows = (wins, targetId) =>
   wins.filter(({ id }) => id !== targetId)
 
+const move = (arr, from, to) => {
+  const clone = [...arr]
+  Array.prototype.splice.call(
+    clone,
+    to,
+    0,
+    Array.prototype.splice.call(clone, from, 1)[0]
+  )
+  return clone
+}
+
+const moveItemToEnd = (arr, itemId) => {
+  const targetIndex = arr.findIndex(({ id }) => id === itemId)
+  if (~targetIndex) {
+    return move(arr, targetIndex, arr.length)
+  }
+}
+
 function App() {
   const [activeWindows, setActiveWindows] = useState([])
 
@@ -46,11 +64,19 @@ function App() {
   const openApp = useCallback(
     (id) => {
       const newWindows = activeWindows.concat(
-        createApp(id, (generatedId) => ({
+        createApp(id, () => ({
           initialPosition: getOffsetForIndex(activeWindows.length),
         }))
       )
 
+      setActiveWindows(newWindows)
+    },
+    [activeWindows]
+  )
+
+  const foregroundWindow = useCallback(
+    (id) => {
+      const newWindows = moveItemToEnd(activeWindows, id)
       setActiveWindows(newWindows)
     },
     [activeWindows]
@@ -62,6 +88,7 @@ function App() {
         <Component
           key={id}
           {...initialProps}
+          onFocusWindow={() => foregroundWindow(id)}
           onClose={() => removeWindow(id)}
         />
       ))}
