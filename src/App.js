@@ -53,6 +53,11 @@ const moveItemToEnd = (arr, itemId) => {
   }
 }
 
+const stopPropagation = (wrappedCallback) => (e) => {
+  e.stopPropagation()
+  return wrappedCallback()
+}
+
 function App() {
   const [activeWindows, setActiveWindows] = useState([])
 
@@ -89,7 +94,7 @@ function App() {
           key={id}
           {...initialProps}
           onFocusWindow={() => foregroundWindow(id)}
-          onClose={() => removeWindow(id)}
+          onClose={stopPropagation(() => removeWindow(id))}
         />
       ))}
     </Desktop>
