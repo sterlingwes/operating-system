@@ -39,9 +39,9 @@ export const Window = ({
           <div className="title-bar">
             <div className="title-bar-text">{title}</div>
             <div className="title-bar-controls">
-              {onMin && <button aria-label="Minimize" onPress={onMin} />}
-              {onMax && <button aria-label="Maximize" onPress={onMax} />}
-              {onClose && <button aria-label="Close" onPress={onClose} />}
+              {onMin && <button aria-label="Minimize" onClick={onMin} />}
+              {onMax && <button aria-label="Maximize" onClick={onMax} />}
+              {onClose && <button aria-label="Close" onClick={onClose} />}
             </div>
           </div>
         )}
