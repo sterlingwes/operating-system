@@ -50,7 +50,7 @@ const Line = styled('p')`
   padding: 4px;
 `
 
-export const Prompt = ({ children }) => {
+export const Prompt = ({ focused }) => {
   const {
     commandHistory,
     activeCommand,
@@ -60,6 +60,12 @@ export const Prompt = ({ children }) => {
 
   const promptRef = useRef(React.createRef())
   const textRef = useRef(React.createRef())
+
+  useEffect(() => {
+    if (focused && textRef.current) {
+      textRef.current.focus()
+    }
+  }, [focused])
 
   useEffect(() => {
     promptRef.current.scrollTop = promptRef.current.scrollHeight

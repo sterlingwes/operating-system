@@ -13,7 +13,7 @@ export const DOSPrompt = (props) => {
       bodyMargin={false}
       resizable={false}
     >
-      <Prompt>Prompt text</Prompt>
+      <Prompt focused={props.focusedWindow}>Prompt text</Prompt>
     </Window>
   )
 }

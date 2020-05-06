@@ -19,10 +19,16 @@ describe('Window management', () => {
         cy.get('.title-bar').should('have.length', 1)
       })
 
+      it('should focus the text input when opened', () => {
+        cy.get('body').type('first prompt')
+        cy.contains('C:>first prompt')
+      })
+
       it('should open multiple apps if repeated', () => {
         cy.get('.title-bar').should('have.length', 1)
         cy.contains(targetAppLabel).dblclick()
         cy.get('.title-bar').should('have.length', 2)
+        cy.get('body').type('second prompt')
       })
     })
   })

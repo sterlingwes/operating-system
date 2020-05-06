@@ -89,10 +89,11 @@ function App() {
 
   return (
     <Desktop onOpenIcon={openApp}>
-      {activeWindows.map(({ id, Component, initialProps }) => (
+      {activeWindows.map(({ id, Component, initialProps }, idx) => (
         <Component
           key={id}
           {...initialProps}
+          focusedWindow={idx === activeWindows.length - 1}
           onFocusWindow={() => foregroundWindow(id)}
           onClose={stopPropagation(() => removeWindow(id))}
         />
