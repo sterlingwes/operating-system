@@ -28,6 +28,13 @@ const TitleBar = ({ title, onMin, onMax, onClose, focusedWindow }) => (
   </TitleBarWrapper>
 )
 
+const WindowDialog = styled('div')`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+`
+
 export const Window = ({
   children,
   style,
@@ -41,12 +48,6 @@ export const Window = ({
   initialPosition,
   bodyMargin = true,
 }) => {
-  const windowStyle = {
-    ...style,
-    width: '100%',
-    height: '100%',
-  }
-
   return (
     <Rnd
       default={{
@@ -58,13 +59,13 @@ export const Window = ({
       dragHandleClassName="title-bar"
       enableResizing={resizable}
     >
-      <div style={windowStyle} className="window" onClick={onFocusWindow}>
+      <WindowDialog style={style} className="window" onClick={onFocusWindow}>
         {title && (
           <TitleBar {...{ title, onMin, onMax, onClose, focusedWindow }} />
         )}
 
         {bodyMargin ? <div className="window-body">{children}</div> : children}
-      </div>
+      </WindowDialog>
     </Rnd>
   )
 }

@@ -1,11 +1,15 @@
 import React, { useCallback, useState } from 'react'
 import { Desktop } from './components'
 import '98.css'
-import { DOSPrompt } from './core-apps'
+import { DOSPrompt, CodeEditor } from './core-apps'
 
 const appMap = {
   'dos-prompt': {
     Component: DOSPrompt,
+    initialProps: {},
+  },
+  'code-editor': {
+    Component: CodeEditor,
     initialProps: {},
   },
 }
@@ -27,7 +31,7 @@ const createApp = (id, createWindowProps) => {
     ...appMap[id],
     initialProps: {
       ...appMap[id].initialProps,
-      ...createWindowProps(generatedId),
+      ...(createWindowProps ? createWindowProps(generatedId) : null),
     },
   }
 }
