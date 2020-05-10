@@ -2,6 +2,10 @@ const commands = {
   echo: (...args) => {
     return args.join(' ')
   },
+  embiggen: () => {
+    document.body.requestFullscreen()
+    return 'A noble spirit embiggens the smallest person.'
+  },
 }
 
 const supportedBins = Object.keys(commands)

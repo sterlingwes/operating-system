@@ -1,6 +1,5 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { usePrompt } from './prompt.hook'
 import { width, height } from './constants'
 
 const promptWidth = width - 1
@@ -50,27 +49,14 @@ const Line = styled('p')`
   padding: 4px;
 `
 
-export const Prompt = ({ focused }) => {
-  const {
-    commandHistory,
-    activeCommand,
-    textareaContent,
-    onTextAreaChange,
-  } = usePrompt()
-
-  const promptRef = useRef(React.createRef())
-  const textRef = useRef(React.createRef())
-
-  useEffect(() => {
-    if (focused && textRef.current) {
-      textRef.current.focus()
-    }
-  }, [focused])
-
-  useEffect(() => {
-    promptRef.current.scrollTop = promptRef.current.scrollHeight
-  }, [commandHistory])
-
+export const Prompt = ({
+  promptRef,
+  textRef,
+  commandHistory,
+  activeCommand,
+  onTextAreaChange,
+  textareaContent,
+}) => {
   return (
     <PromptArea>
       <VisiblePrompt ref={promptRef} onClick={() => textRef.current.focus()}>

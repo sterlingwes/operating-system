@@ -42,6 +42,7 @@ export const Window = ({
   onMin,
   onMax,
   onClose,
+  onDragStop,
   onFocusWindow,
   focusedWindow,
   resizable = true,
@@ -58,6 +59,7 @@ export const Window = ({
       }}
       dragHandleClassName="title-bar"
       enableResizing={resizable}
+      {...{ onDragStop }}
     >
       <WindowDialog style={style} className="window" onClick={onFocusWindow}>
         {title && (
