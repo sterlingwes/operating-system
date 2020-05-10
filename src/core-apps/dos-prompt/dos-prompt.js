@@ -8,7 +8,7 @@ export const DOSPrompt = (props) => {
   return (
     <Window
       {...propagatableWindowProps(props)}
-      title="MS-DOS Prompt"
+      title="DOS Prompt"
       style={{ width, height }}
       bodyMargin={false}
       resizable={false}
