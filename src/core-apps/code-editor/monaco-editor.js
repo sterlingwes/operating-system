@@ -190,11 +190,14 @@ export const startEditor = ({ files, containerElement, onOpenPath }) => {
     const uri = monaco.Uri.from({ scheme: 'file', path }).toString()
 
     const lang = getFileLanguage(path)
-    const model = monaco.editor.createModel(content, lang, uri)
-    model.updateOptions({
-      tabSize: 2,
-      insertSpaces: true,
-    })
+    let model = monaco.editor.getModel(`file:///${path}`)
+    if (!model) {
+      model = monaco.editor.createModel(content, lang, uri)
+      model.updateOptions({
+        tabSize: 2,
+        insertSpaces: true,
+      })
+    }
 
     if (index === files.length - 1) editor.setModel(model)
   })
