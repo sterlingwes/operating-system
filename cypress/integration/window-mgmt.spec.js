@@ -4,7 +4,7 @@ describe('Window management', () => {
   before(() => cy.visit('http://localhost:3000'))
 
   describe('desktop icon', () => {
-    const targetAppLabel = 'MS-DOS Prompt'
+    const targetAppLabel = 'DOS Prompt'
 
     describe('single click', () => {
       it('should focus the icon', () => {
