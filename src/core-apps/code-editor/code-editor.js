@@ -30,7 +30,7 @@ export const CodeEditor = (props) => {
   return (
     <Window
       {...propagatableWindowProps(props)}
-      title="Visual Basic"
+      title="Code Editor"
       style={{ width: 600, height: 800 }}
       bodyMargin={false}
     >
