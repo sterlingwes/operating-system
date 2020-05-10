@@ -47,6 +47,11 @@ const icons = [
     image: require('../assets/dos-prompt.png'),
     label: 'MS-DOS Prompt',
   },
+  {
+    target: 'code-editor',
+    image: require('../assets/visual-basic.png'),
+    label: 'Visual Basic',
+  },
 ]
 
 export const Desktop = ({ children, onOpenIcon }) => {

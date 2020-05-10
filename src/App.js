@@ -31,7 +31,7 @@ const createApp = (id, createWindowProps) => {
     ...appMap[id],
     initialProps: {
       ...appMap[id].initialProps,
-      ...createWindowProps(generatedId),
+      ...(createWindowProps ? createWindowProps(generatedId) : null),
     },
   }
 }
