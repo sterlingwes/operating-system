@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "98.css": "^0.1.9",
+    "98.css": "^0.1.14",
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
