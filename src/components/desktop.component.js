@@ -49,8 +49,8 @@ const icons = [
   },
   {
     target: 'code-editor',
-    image: require('../assets/visual-basic.png'),
-    label: 'Visual Basic',
+    image: require('../assets/code-editor.png'),
+    label: 'Code Editor',
   },
 ]
 
