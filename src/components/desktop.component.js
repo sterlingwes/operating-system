@@ -45,7 +45,7 @@ const icons = [
   {
     target: 'dos-prompt',
     image: require('../assets/dos-prompt.png'),
-    label: 'MS-DOS Prompt',
+    label: 'DOS Prompt',
   },
   {
     target: 'code-editor',
