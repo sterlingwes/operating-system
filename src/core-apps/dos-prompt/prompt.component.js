@@ -1,9 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { width, height } from './constants'
-
-const promptWidth = width - 1
-const promptHeight = height - 15
 
 const PromptArea = styled('div')`
   position: relative;
@@ -12,8 +8,8 @@ const PromptArea = styled('div')`
 `
 
 const VisiblePrompt = styled('div')`
-  width: ${promptWidth - 2}px;
-  height: ${promptHeight - 2}px;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
   background-color: #000;
   color: #fff;
@@ -28,8 +24,8 @@ const PromptText = styled('textarea')`
   right: 0;
   left: 0;
   bottom: 0;
-  width: ${promptWidth}px;
-  height: ${promptHeight}px;
+  width: 100%;
+  height: 100%;
   background-color: transparent;
   color: transparent;
   text-align: center;

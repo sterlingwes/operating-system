@@ -204,4 +204,6 @@ export const startEditor = ({ files, containerElement, onOpenPath }) => {
 
   //
   window.monacoEditor = { editor, monaco }
+
+  return editor
 }

@@ -7,6 +7,8 @@ const dims = ({ width, height } = {}) => ({
   height,
 })
 
+const noDims = ({ width, height, ...rest }) => rest
+
 const TitleBarWrapper = styled('div')`
   ${(props) => (props.focused ? '' : `background: #7F787F`)}
 `
@@ -15,9 +17,15 @@ const TitleBarText = styled('div')`
   ${(props) => (props.focused ? '' : `color: silver`)}
 `
 
-const TitleBar = ({ title, onMin, onMax, onClose, focusedWindow }) => (
+const TitleImage = styled('img')`
+  height: 12px;
+  margin-right: 5px;
+`
+
+const TitleBar = ({ image, title, onMin, onMax, onClose, focusedWindow }) => (
   <TitleBarWrapper className="title-bar" focused={focusedWindow}>
     <TitleBarText className="title-bar-text" focused={focusedWindow}>
+      {image && <TitleImage src={image} alt={title} />}
       {title}
     </TitleBarText>
     <div className="title-bar-controls">
@@ -35,14 +43,30 @@ const WindowDialog = styled('div')`
   height: 100%;
 `
 
+const resizableHandles = (resizable) =>
+  resizable
+    ? {
+        bottom: true,
+        bottomLeft: true,
+        bottomRight: true,
+        left: true,
+        right: true,
+        top: true,
+        topLeft: true,
+        topRight: true,
+      }
+    : false
+
 export const Window = ({
   children,
   style,
   title,
+  image,
   onMin,
   onMax,
   onClose,
   onDragStop,
+  onResize,
   onFocusWindow,
   focusedWindow,
   resizable = true,
@@ -58,12 +82,18 @@ export const Window = ({
         ...initialPosition,
       }}
       dragHandleClassName="title-bar"
-      enableResizing={resizable}
-      {...{ onDragStop }}
+      enableResizing={resizableHandles(resizable)}
+      {...{ onDragStop, onResize }}
     >
-      <WindowDialog style={style} className="window" onClick={onFocusWindow}>
+      <WindowDialog
+        style={noDims(style)}
+        className="window"
+        onClick={onFocusWindow}
+      >
         {title && (
-          <TitleBar {...{ title, onMin, onMax, onClose, focusedWindow }} />
+          <TitleBar
+            {...{ title, image, onMin, onMax, onClose, focusedWindow }}
+          />
         )}
 
         {bodyMargin ? <div className="window-body">{children}</div> : children}
