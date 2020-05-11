@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { Desktop } from './components'
 import '98.css'
-import { DOSPrompt, CodeEditor } from './core-apps'
+import { DOSPrompt, CodeEditor, Notepad } from './core-apps'
 
 const appMap = {
   'dos-prompt': {
@@ -10,6 +10,10 @@ const appMap = {
   },
   'code-editor': {
     Component: CodeEditor,
+    initialProps: {},
+  },
+  notepad: {
+    Component: Notepad,
     initialProps: {},
   },
 }
@@ -25,6 +29,8 @@ const getOffsetForIndex = (index) => ({
 const naiveId = () => Date.now()
 
 const createApp = (id, createWindowProps) => {
+  if (!appMap[id]) throw new Error(`No app registered for '${id}'`)
+
   const generatedId = `${id}-${naiveId()}`
   return {
     id: generatedId,

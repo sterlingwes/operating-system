@@ -52,6 +52,11 @@ const icons = [
     image: require('../assets/code-editor.png'),
     label: 'Code Editor',
   },
+  {
+    target: 'notepad',
+    image: require('../assets/notepad.png'),
+    label: 'Notepad',
+  },
 ]
 
 export const Desktop = ({ children, onOpenIcon }) => {
