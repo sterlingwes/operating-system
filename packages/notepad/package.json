@@ -1,0 +1,15 @@
+{
+  "name": "@operating-system/notepad",
+  "version": "0.1.0",
+  "dependencies": {
+    "@operating-system/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "styled-components": "*"
+  }
+}

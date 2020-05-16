@@ -1,0 +1,34 @@
+{
+  "name": "operating-system-example",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ../node_modules/@operating-system/bios/scripts/start.js",
+    "build": "node ../node_modules/@operating-system/bios/scripts/build.js",
+    "test": "node ../node_modules/@operating-system/bios/scripts/test.js"
+  },
+  "dependencies": {
+    "@operating-system/bios": "^0.1.0",
+    "@operating-system/core": "^0.1.0",
+    "@operating-system/code-editor": "^0.1.0",
+    "@operating-system/dos-prompt": "^0.1.0",
+    "@operating-system/notepad": "^0.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.3.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

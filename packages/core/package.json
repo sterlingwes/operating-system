@@ -1,0 +1,15 @@
+{
+  "name": "@operating-system/core",
+  "version": "0.1.0",
+  "dependencies": {
+    "react-rnd": "^10.1.9"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "styled-components": "*"
+  }
+}

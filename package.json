@@ -1,7 +1,11 @@
 {
   "name": "operating-system",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "example"
+  ],
   "dependencies": {
     "98.css": "^0.1.14",
     "@babel/core": "7.9.0",
