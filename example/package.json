@@ -13,6 +13,7 @@
     "@operating-system/code-editor": "^0.1.0",
     "@operating-system/dos-prompt": "^0.1.0",
     "@operating-system/notepad": "^0.1.0",
+    "98.css": "^0.1.14",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
