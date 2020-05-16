@@ -12,11 +12,12 @@
     "e2e": "NODE_ENV=development cypress run"
   },
   "devDependencies": {
+    "@babel/core": "7.9.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
+    "@testing-library/react-hooks": "^3.2.1",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
-    "@babel/core": "7.9.0",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
     "babel-preset-react-app": "^9.1.2",
@@ -35,6 +36,7 @@
     "jest-watch-typeahead": "0.4.2",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1"
   }
 }
