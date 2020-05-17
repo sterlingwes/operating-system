@@ -1,6 +1,9 @@
 {
   "name": "@operating-system/bios",
   "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",

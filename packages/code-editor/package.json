@@ -1,6 +1,9 @@
 {
   "name": "@operating-system/code-editor",
   "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@operating-system/core": "^0.1.0",
     "idb-keyval": "^3.2.0",

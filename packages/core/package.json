@@ -1,6 +1,9 @@
 {
   "name": "@operating-system/core",
   "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "react-rnd": "^10.1.9"
   },
