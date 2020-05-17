@@ -14,7 +14,7 @@
     "@operating-system/code-editor": "^0.1.0",
     "@operating-system/dos-prompt": "^0.1.0",
     "@operating-system/notepad": "^0.1.0",
-    "98.css": "git+ssh://git@github.com/stephdin/98.css.git#70af84e59fda8f71d9ea41cd6e2e806f6085618d",
+    "98.css": "stephdin/98.css.git#70af84e59fda8f71d9ea41cd6e2e806f6085618d",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
