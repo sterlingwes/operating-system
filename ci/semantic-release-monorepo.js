@@ -10,7 +10,7 @@ const {
 
 const noPublishNpmConfig = (pluginConfig) => ({
   ...pluginConfig,
-  npmPublish: false,
+  npmPublish: true,
 })
 
 const configure = (context) => ({
@@ -20,7 +20,7 @@ const configure = (context) => ({
     publish: [
       {
         path: '@semantic-release/npm',
-        npmPublish: false,
+        npmPublish: true,
       },
     ],
   },
