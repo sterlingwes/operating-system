@@ -1,6 +1,6 @@
 {
   "name": "@operating-system/core",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "dependencies": {
     "react-rnd": "^10.1.9"
   },
