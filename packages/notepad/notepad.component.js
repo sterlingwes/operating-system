@@ -18,6 +18,12 @@ export const Notepad = (props) => {
       title="Notepad"
       style={{ width: 600, height: 500 }}
       bodyMargin={false}
+      menuItems={[
+        { label: 'File', childItems: [{ label: 'Open' }] },
+        { label: 'Edit', childItems: [] },
+        { label: 'Search', childItems: [] },
+        { label: 'Help', childItems: [] },
+      ]}
     >
       <EditorArea />
     </Window>

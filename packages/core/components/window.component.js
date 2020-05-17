@@ -36,6 +36,29 @@ const TitleBar = ({ image, title, onMin, onMax, onClose, focusedWindow }) => (
   </TitleBarWrapper>
 )
 
+const MenuBar = ({ menuItems }) => (
+  <section className="field-row" style={{ justifyContent: 'flex-start' }}>
+    {menuItems.map((item) => (
+      <div>
+        <button className="menu-bar">{item.label}</button>
+        <div className="menu" style={{ width: 160 }}>
+          <ul>
+            {item.childItems.map(({ type, onClick, disabled, label }) =>
+              type === 'separator' ? (
+                <div className="separator"></div>
+              ) : (
+                <li onClick={onClick} className={disabled ? 'disabled' : ''}>
+                  {label}
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+      </div>
+    ))}
+  </section>
+)
+
 const WindowDialog = styled('div')`
   display: flex;
   flex-direction: column;
@@ -62,6 +85,7 @@ export const Window = ({
   style,
   title,
   image,
+  menuItems,
   onMin,
   onMax,
   onClose,
@@ -95,6 +119,8 @@ export const Window = ({
             {...{ title, image, onMin, onMax, onClose, focusedWindow }}
           />
         )}
+
+        {menuItems && <MenuBar menuItems={menuItems} />}
 
         {bodyMargin ? <div className="window-body">{children}</div> : children}
       </WindowDialog>

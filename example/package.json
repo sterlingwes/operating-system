@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ../node_modules/@operating-system/bios/scripts/start.js",
     "build": "node ../node_modules/@operating-system/bios/scripts/build.js",
-    "test": "node ../node_modules/@operating-system/bios/scripts/test.js"
+    "test": "node ../node_modules/@operating-system/bios/scripts/test.js",
+    "postinstall": "cd ../node_modules/98.css && yarn && yarn build"
   },
   "dependencies": {
     "@operating-system/bios": "^0.1.0",
@@ -13,7 +14,7 @@
     "@operating-system/code-editor": "^0.1.0",
     "@operating-system/dos-prompt": "^0.1.0",
     "@operating-system/notepad": "^0.1.0",
-    "98.css": "^0.1.14",
+    "98.css": "git+ssh://git@github.com/stephdin/98.css.git#70af84e59fda8f71d9ea41cd6e2e806f6085618d",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
