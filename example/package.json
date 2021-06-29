@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@operating-system/bios": "^0.1.0",
-    "@operating-system/core": "^0.1.0",
+    "@operating-system/core": "^1.0.0",
     "@operating-system/code-editor": "^0.1.0",
     "@operating-system/dos-prompt": "^0.1.0",
     "@operating-system/notepad": "^0.1.0",
